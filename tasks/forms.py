@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from bootstrap_datepicker_plus.widgets import DatePickerInput
 from ckeditor.widgets import CKEditorWidget
 from django import forms
@@ -28,3 +29,5 @@ class TagForm(forms.ModelForm):
     class Meta:
         model = Tag
         fields = ["name"]
+=======
+>>>>>>> parent of fe26dee (Edit models, forms, urls)
