@@ -1,10 +1,15 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>{% if form.instance.pk %}Edit{% else %}Add{% endif %} {{ model_name }}</h1>
+<h1>{% if form.instance.pk %}Edit{% else %}Add{% endif %}</h1>
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit" class="btn">Save</button>
+    {% load static %}
+    <button type="submit" class="btn btn-primary">Save</button>
 </form>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/script-datepicker.js' %}"></script>
 {% endblock %}
