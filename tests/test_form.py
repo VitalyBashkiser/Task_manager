@@ -22,3 +22,4 @@ class TagFormTest(TestCase):
         }
         form = TagForm(data=form_data)
         self.assertFalse(form.is_valid())
+
