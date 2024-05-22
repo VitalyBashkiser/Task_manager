@@ -43,8 +43,9 @@ INSTALLED_APPS = [
     # user apps
     "tasks",
     # 3rd apps
-    'ckeditor',
-    'ckeditor_uploader',
+    "ckeditor",
+    "ckeditor_uploader",
+    "bootstrap_datepicker_plus",
 ]
 
 MIDDLEWARE = [
@@ -132,10 +133,10 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 CKEDITOR_UPLOAD_PATH = "uploads/"
 
 CKEDITOR_CONFIGS = {
-    'default': {
-        'toolbar': 'full',
-        'height': 300,
-        'width': '100%',
+    "default": {
+        "toolbar": "full",
+        "height": 300,
+        "width": "100%",
     },
 }
 

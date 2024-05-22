@@ -1,18 +1,59 @@
+<<<<<<< HEAD
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Todo List</h1>
-<a href="{% url 'tasks:task-add' %}" class="btn">Add Task</a>
-<ul>
-    {% for task in tasks %}
-        <li>
-            <p>{{ task.content }} {% if task.deadline %} - due by {{ task.deadline }} {% endif %}</p>
-            <a href="{% url 'tasks:task-update' task.id %}">Edit</a>
-            <a href="{% url 'tasks:task-delete' task.id %}">Delete</a>
-            <a href="{% url 'tasks:task-toggle' task.id %}">
-                {% if task.is_done %} Undo {% else %} Complete {% endif %}
-            </a>
-        </li>
-    {% endfor %}
-</ul>
+<div class="container">
+    <div class="row">
+        <div class="col-md-2">
+            {% include 'includes/sidebar.html' %}
+        </div>
+        <div class="col-md-10">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h1>TODO list</h1>
+                <a href="{% url 'tasks:task-add' %}" class="btn btn-primary float-right">Add task</a>
+            </div>
+            <ul class="list-group">
+                {% for task in tasks %}
+                <li class="list-group-item">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <h5>
+                                {{ task.content|safe }}
+                                {% if task.is_done %}
+                                <span class="badge badge-success badge-status">Done</span>
+                                {% else %}
+                                <span class="badge badge-danger badge-status">Not done</span>
+                                {% endif %}
+                            </h5>
+                            <p>Created: {{ task.created_at|date:"F j, Y, P" }}
+                                {% if task.deadline %}
+                                . Deadline: {{ task.deadline|date:"F j, Y, P" }}
+                                {% endif %}
+                            </p>
+                            <p>Tags:
+                                {% for tag in task.tags.all %}
+                                <span class="badge badge-secondary">{{ tag.name }}</span>
+                                {% endfor %}
+                            </p>
+                        </div>
+                        <div>
+                            {% if task.is_done %}
+                            <button class="btn btn-danger btn-sm toggle-status float-right" data-task-id="{{ task.pk }}">Undo</button>
+                            {% else %}
+                            <button class="btn btn-success btn-sm toggle-status float-right" data-task-id="{{ task.pk }}">Complete</button>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-start">
+                        <a href="{% url 'tasks:task-update' task.pk %}" class="btn btn-info btn-sm mr-2">Update</a>
+                        <a href="{% url 'tasks:task-delete' task.pk %}" class="btn btn-danger btn-sm mr-2">Delete</a>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
 {% endblock %}
+=======
+>>>>>>> parent of fe26dee (Edit models, forms, urls)

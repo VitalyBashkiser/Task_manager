@@ -1,25 +1,28 @@
 body {
-    font-family: Arial, sans-serif;
+    padding-left: 220px;
 }
+
+.container {
+    max-width: 800px;
+    margin: auto;
+}
+
 .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
     width: 200px;
-    float: left;
+    background-color: #f8f9fa;
+    padding-top: 20px;
 }
-.sidebar a {
-    display: block;
-    padding: 10px;
-    text-decoration: none;
-    color: #000;
+
+.float-right {
+    float: right;
 }
-.main {
-    margin-left: 220px;
-    padding: 10px;
-}
-.btn {
-    display: inline-block;
-    padding: 10px;
-    background-color: #007BFF;
-    color: #FFF;
-    text-decoration: none;
-    border-radius: 5px;
+
+.badge-status {
+    font-size: 1em;
+    padding: 0.5em;
+    margin-right: 1em;
 }

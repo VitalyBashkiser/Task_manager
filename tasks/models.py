@@ -1,6 +1,6 @@
-from ckeditor.fields import RichTextField
-
 from django.db import models
+from ckeditor.fields import RichTextField
+from datetime import datetime
 
 
 class Tag(models.Model):
@@ -19,3 +19,7 @@ class Task(models.Model):
 
     def __str__(self):
         return self.content
+
+    @property
+    def is_overdue(self):
+        return self.deadline and self.deadline < datetime.now()

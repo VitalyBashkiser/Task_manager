@@ -1,15 +1,31 @@
+<<<<<<< HEAD
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Tag List</h1>
-<a href="{% url 'tasks:tag-add' %}" class="btn">Add Tag</a>
-<ul>
-    {% for tag in tags %}
-        <li>
-            <p>{{ tag.name }}</p>
-            <a href="{% url 'tasks:tag-update' tag.id %}">Edit</a>
-            <a href="{% url 'tasks:tag-delete' tag.id %}">Delete</a>
-        </li>
-    {% endfor %}
-</ul>
+<div class="container">
+    <div class="row">
+        <div class="col-md-2">
+            {% include 'includes/sidebar.html' %}
+        </div>
+        <div class="col-md-10">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h1>Tags</h1>
+                <a href="{% url 'tasks:tag-add' %}" class="btn btn-primary float-right">Add tag</a>
+            </div>
+            <ul class="list-group">
+                {% for tag in tags %}
+                <li class="list-group-item">
+                    <span>{{ tag.name }}</span>
+                    <div class="d-flex justify-content-start">
+                        <a href="{% url 'tasks:tag-update' tag.pk %}" class="btn btn-info btn-sm mr-2">Update</a>
+                        <a href="{% url 'tasks:tag-delete' tag.pk %}" class="btn btn-danger btn-sm mr-2">Delete</a>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
 {% endblock %}
+=======
+>>>>>>> parent of fe26dee (Edit models, forms, urls)
